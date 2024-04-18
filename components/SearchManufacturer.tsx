@@ -1,8 +1,8 @@
+import Image from "next/image";
 import { Fragment, useState } from "react";
 import { Combobox, Transition } from "@headlessui/react";
-
-import { SearchManuFacturerProps } from "@/types";
 import { manufacturers } from "@/constants";
+import { SearchManuFacturerProps } from "@/types";
 
 const SearchManufacturer = ({ manufacturer, setManuFacturer }: SearchManuFacturerProps) => {
   const [query, setQuery] = useState("");
@@ -22,7 +22,15 @@ const SearchManufacturer = ({ manufacturer, setManuFacturer }: SearchManuFacture
       <Combobox value={manufacturer} onChange={setManuFacturer}>
         <div className='relative w-full'>
           {/* Button for the combobox. Click on the icon to see the complete dropdown */}
-          <Combobox.Button className='absolute top-[14px]'></Combobox.Button>
+          <Combobox.Button className='absolute top-[14px]'>
+            <Image
+              src='/car-logo.svg'
+              width={20}
+              height={20}
+              className='ml-4'
+              alt='car logo'
+            />
+          </Combobox.Button>
 
           {/* Input field for searching */}
           <Combobox.Input
